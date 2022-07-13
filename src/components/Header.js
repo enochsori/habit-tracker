@@ -1,15 +1,17 @@
 import styled from 'styled-components';
 
 const Header = ({ habits }) => {
-  const count = habits.length;
+  // Calculate the total count from the habits with count greater than 0
+  const count = habits.filter((habit) => habit.count > 0);
+  const countTotal = count.length;
   return (
     <Wrapper>
       <Logo>
-        <i class='fa-solid fa-person-through-window'></i>
+        <i className='fa-solid fa-person-through-window'></i>
       </Logo>
 
-    <Title>Habit Tracker</Title>
-      <HabitCount>{count}</HabitCount>
+      <Title>Habit Tracker</Title>
+      <HabitCount>{countTotal}</HabitCount>
     </Wrapper>
   );
 };
